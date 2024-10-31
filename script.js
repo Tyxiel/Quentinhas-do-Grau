@@ -188,14 +188,26 @@ document.getElementById("imprimir-nota-fiscal").addEventListener("click", () => 
         <title>Nota Fiscal</title>
         <style>
           body { font-family: Arial, sans-serif; padding: 20px; }
-          h1 { text-align: center; }
+          h1, h2 { text-align: center; }
           ul { list-style-type: none; padding: 0; }
           li { margin: 10px 0; }
           .total { font-weight: bold; }
         </style>
       </head>
       <body>
-        <h1>Resumo da Compra</h1>
+        <h1>Quentinhas do Grau</h1>
+        <h2>Nota Fiscal</h2>
+        <br>
+        <hr>
+        <br>
+        <div class="info">
+          Telefone: (12) 34567-8901
+          <br>
+          E-mail: quentinhasdograu@example.com
+        </div>
+        <br>
+        <hr>
+        <br>
         <ul>${notaFiscalItens}</ul>
         <div class="total">Total: R$ ${notaFiscalTotal}</div>
       </body>
