@@ -240,14 +240,25 @@ document.getElementById("finalizar-compra").addEventListener("click", () => {
   // Fecha o resumo do carrinho
   document.getElementById("carrinho-resumo").style.display = "none";
 });
+
 // Função para rolar o menu horizontalmente
 function scrollMenu(sectionId, direction) {
   const menu = document.getElementById(`menu-${sectionId}`);
-  const scrollAmount = 600; // Ajuste a quantidade de scroll conforme necessário
-  menu.scrollBy({
-      left: direction * scrollAmount,
-      behavior: 'smooth'
-  });
+  const scrollAmount = 603; // Ajuste a quantidade de scroll conforme necessário
+
+  if (direction === 1 && menu.scrollLeft + menu.clientWidth >= menu.scrollWidth) {
+      // Se estiver indo para a direita e chegou ao final, volta ao início
+      menu.scrollTo({
+          left: 0,
+          behavior: 'smooth'
+      });
+  } else {
+      // Caso contrário, faz o scroll normal
+      menu.scrollBy({
+          left: direction * scrollAmount,
+          behavior: 'smooth'
+      });
+  }
 }
 
 // Adiciona evento de clique aos botões de rolagem
@@ -258,3 +269,4 @@ document.querySelectorAll(".nav-button").forEach((button) => {
       scrollMenu(sectionId, direction); // Chama a função de scroll
   });
 });
+
