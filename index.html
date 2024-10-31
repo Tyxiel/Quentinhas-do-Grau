@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quentinhas do Grau</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    />
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="./img/image-removebg-preview.png"
+          alt="Logo Quentinhas do Grau"
+          class="logo-image"
+        />&nbsp;
+        <span>Quentinhas do Grau</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#almoco">Almoço</a></li>
+          <li><a href="#jantar">Jantar</a></li>
+          <li><a href="#bebidas">Bebidas</a></li>
+          <li><a href="#sobremesas">Sobremesas</a></li>
+        </ul>
+      </nav>
+      <div id="carrinho">
+        <i class="bx bx-cart"></i>
+        &nbsp;Carrinho
+      </div>
+      <div id="carrinho-resumo">
+        <h3>Resumo do Carrinho</h3>
+        <p>Total: R$ <span id="carrinho-total">0.00</span></p>
+        <p>Quantidade de Itens: <span id="carrinho-count">0</span></p>
+        <button id="mais-detalhes">
+          <i class='bx bxs-chevrons-up' ></i>Mais Detalhes<i class='bx bxs-chevrons-up' ></i>
+        </button>
+      </div>
+    </header>
+    <div id="overlay"></div>
+    <aside id="nota-fiscal">
+      <button id="limpar-carrinho" class="nota-fiscal-botao" onclick="updateNotaFiscal()">
+        <i class="bx bx-trash" onclick="updateNotaFiscal()"></i> Limpar
+      </button>
+      <button id="fechar-nota" class="nota-fiscal-botao">
+        <i class="bx bx-x"></i> Fechar
+      </button>
+
+      <h2>Nota Fiscal</h2>
+      <ul id="nota-fiscal-itens"></ul>
+      <p>Total: R$ <span id="nota-fiscal-total">0.00</span></p>
+
+      <div class="nota-fiscal-botoes">
+        <button id="finalizar-compra" class="nota-fiscal-botao">
+          <i class="bx bx-check"></i> Finalizar Compra
+        </button>
+        <button id="imprimir-nota-fiscal" class="nota-fiscal-botao">
+          <i class="bx bx-printer"></i> Imprimir Nota Fiscal
+        </button>
+      </div>
+    </aside>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Bem-vindo ao Quentinhas do Grau</h1>
+        <p>O melhor da culinária caseira!</p>
+        <div class="scroll-indicator">
+          <i class="bx bx-chevron-down"></i>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <section id="almoco" class="menu-section almoco">
+        <h2>Almoço</h2>
+        <div class="menu-container">
+          <button class="nav-button left" onclick="scrollMenu('almoco', -1)">
+            <i class="bx bx-chevron-left"></i>
+          </button>
+          <div class="menu" id="menu-almoco">
+            <div class="menu-item">
+              <h3>Prato do Dia</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/composicao-de-comida-brasileira-deliciosa-de-alto-angulo_23-2148739223.jpg"
+                alt="Prato do Dia"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/composicao-de-comida-brasileira-deliciosa-de-alto-angulo_10893934.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Arroz, feijão, bife grelhado e salada.</p>
+              <p class="item-price">R$ 25,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Feijoada</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/sortido-close-up-com-deliciosa-comida-brasileira_23-2148739180.jpg"
+                alt="Feijoada"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/sortido-close-up-com-deliciosa-comida-brasileira_10892476.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Feijoada completa com arroz e couve.</p>
+              <p class="item-price">R$ 30,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Frango à Parmegiana</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/lasanha-recem-cozida-com-molho-a-bolonhesa-gourmet-gerada-por-ia_188544-16148.jpg"
+                alt="Frango à Parmegiana"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/lasanha-recem-cozida-com-molho-a-bolonhesa-gourmet-gerada-por-ia_41280728.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Frango empanado com molho de tomate e queijo.</p>
+              <p class="item-price">R$ 28,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Macarrão à Bolonhesa</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/macarrao-cozido-e-almondega-na-louca-de-barro_23-2147925994.jpg"
+                alt="Macarrão à Bolonhesa"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/macarrao-cozido-e-almondega-na-louca-de-barro_3329528.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Macarrão ao molho bolonhesa com queijo parmesão.</p>
+              <p class="item-price">R$ 22,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Lasanha de Carne</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/close-up-tiro-macarrao-com-prato-de-carne_23-2148343657.jpg"
+                alt="Lasanha de Carne"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/close-up-tiro-macarrao-com-prato-de-carne_5934550.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Lasanha recheada com carne moída e molho de tomate.</p>
+              <p class="item-price">R$ 35,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Estrogonofe de Frango</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/vista-superior-do-azerbaijao-erishte-em-uma-tigela-sobre-um-pano-de-fundo-bege_140725-132411.jpg"
+                alt="Estrogonofe de Frango"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/vista-superior-do-azerbaijao-erishte-em-uma-tigela-sobre-um-pano-de-fundo-bege_17001216.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Estrogonofe de frango com arroz e batata palha.</p>
+              <p class="item-price">R$ 32,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+          </div>
+          <button class="nav-button right" onclick="scrollMenu('almoco', 1)">
+            <i class="bx bx-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <section id="jantar" class="menu-section jantar">
+        <h2>Jantar</h2>
+        <div class="menu-container">
+          <button class="nav-button left" onclick="scrollMenu('jantar', -1)">
+            <i class="bx bx-chevron-left"></i>
+          </button>
+          <div class="menu" id="menu-jantar">
+            <div class="menu-item">
+              <h3>Peixe Grelhado</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/posta-de-peixe-com-batatas-fritas-kiwi-alface-cenoura-tomate-e-repolho-em-um-prato-branco_1150-22561.jpg"
+                alt="Peixe Grelhado"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/posta-de-peixe-com-batatas-fritas-kiwi-alface-cenoura-tomate-e-repolho-em-um-prato-branco_8085601.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Peixe grelhado com legumes no vapor.</p>
+              <p class="item-price">R$ 28,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Risoto de Cogumelos</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/risoto-de-cogumelos-deliciosos-em-tigela-branca-com-colher_23-2147925975.jpg"
+                alt="Risoto de Cogumelos"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/risoto-de-cogumelos-deliciosos-em-tigela-branca-com-colher_3318619.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Risoto cremoso com cogumelos frescos.</p>
+              <p class="item-price">R$ 32,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Pizza Margherita</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/uma-pizza-de-pepperoni-classica-com-queijo-derretido-e-verdura-no-topo_114579-1822.jpg"
+                alt="Pizza Margherita"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/uma-pizza-de-pepperoni-classica-com-queijo-derretido-e-verdura-no-topo_5448672.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Pizza com molho de tomate, mozzarella e manjericão.</p>
+              <p class="item-price">R$ 35,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Salada Caesar</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/schnitzel-de-frango-servido-com-alface-e-verduras_141793-569.jpg"
+                alt="Salada Caesar"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/schnitzel-de-frango-servido-com-alface-e-verduras_6980232.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Salada Caesar com frango grelhado e croutons.</p>
+              <p class="item-price">R$ 25,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Spaghetti Carbonara</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/bacia-de-close-up-com-macarrao-saboroso_23-2147772010.jpg"
+                alt="Spaghetti Carbonara"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/bacia-de-close-up-com-macarrao-saboroso_1957235.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Spaghetti ao molho carbonara com bacon e queijo.</p>
+              <p class="item-price">R$ 30,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Bife à Milanesa</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/vista-do-close-up-do-conceito-de-comida-deliciosa_23-2148510916.jpg"
+                alt="Bife à Milanesa"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/vista-do-close-up-do-conceito-de-comida-deliciosa_7945204.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Bife empanado servido com purê de batata.</p>
+              <p class="item-price">R$ 33,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+          </div>
+          <button class="nav-button right" onclick="scrollMenu('jantar', 1)">
+            <i class="bx bx-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <section id="bebidas" class="menu-section bebidas">
+        <h2>Bebidas</h2>
+        <div class="menu-container">
+          <button class="nav-button left" onclick="scrollMenu('bebidas', -1)">
+            <i class="bx bx-chevron-left"></i>
+          </button>
+          <div class="menu" id="menu-bebidas">
+            <div class="menu-item">
+              <h3>Refrigerante</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/vista-frontal-bebida-energetica-em-lata-na-cor-de-fundo-rosa-escuro-refrigerante-de-agua-bebida-escura_140725-158055.jpg"
+                alt="Refrigerante"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/vista-frontal-bebida-energetica-em-lata-na-cor-de-fundo-rosa-escuro-refrigerante-de-agua-bebida-escura_22290833.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Refrigerante de cola, 350ml.</p>
+              <p class="item-price">R$ 5,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Suco Natural</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/bebidas-deliciosas-de-limao-e-laranja_23-2148785350.jpg"
+                alt="Suco Natural"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/bebidas-deliciosas-de-limao-e-laranja_11463512.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Suco de laranja ou limão, 300ml.</p>
+              <p class="item-price">R$ 7,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Cerveja Artesanal</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/mao-humana-segurando-alcoolico-garrafa-com-orelhas-de-trigo-ligado-madeira-superficie_23-2147952022.jpg?t=st=1730401180~exp=1730404780~hmac=0c8c3432494dc66d78488d5526486cb6c103bcea567acb8d3289f3313fc6a7a3&w=996"
+                alt="Cerveja Artesanal"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/mao-humana-segurando-alcoolico-garrafa-com-orelhas-de-trigo-ligado-madeira-superficie_3491138.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Cerveja artesanal, 350ml.</p>
+              <p class="item-price">R$ 12,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Água Mineral</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/garrafa-de-agua-vazia_144627-6042.jpg"
+                alt="Água Mineral"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/garrafa-de-agua-vazia_6165453.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Água mineral, 500ml.</p>
+              <p class="item-price">R$ 3,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Chá Gelado</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/uma-xicara-de-suco-com-fatias-de-frutas_114579-34912.jpg"
+                alt="Chá Gelado de pêssego"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/uma-xicara-de-suco-com-fatias-de-frutas_12399963.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Chá gelado de pêssego, 350ml.</p>
+              <p class="item-price">R$ 6,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Coquetel de Frutas</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/alimentos-que-estimulam-a-imunidade-para-um-estilo-de-vida-saudavel-com-frutas-citricas_23-2149211498.jpg"
+                alt="Coquetel de Frutas"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/alimentos-que-estimulam-a-imunidade-para-um-estilo-de-vida-saudavel-com-frutas-citricas_21076816.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Coquetel de frutas variadas, 300ml.</p>
+              <p class="item-price">R$ 8,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+          </div>
+          <button class="nav-button right" onclick="scrollMenu('bebidas', 1)">
+            <i class="bx bx-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <section id="sobremesas" class="menu-section sobremesas">
+        <h2>Sobremesas</h2>
+        <div class="menu-container">
+          <button
+            class="nav-button left"
+            onclick="scrollMenu('sobremesas', -1)"
+          >
+            <i class="bx bx-chevron-left"></i>
+          </button>
+          <div class="menu" id="menu-sobremesas">
+            <div class="menu-item">
+              <h3>Pudim</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/creme-no-prato-com-menta-e-vagem-de-baunilha_23-2148489119.jpg"
+                alt="Pudim"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/creme-no-prato-com-menta-e-vagem-de-baunilha_7404049.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Pudim de leite condensado com calda de caramelo.</p>
+              <p class="item-price">R$ 10,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Brownie</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/brownie-de-chocolate-servido-com-sorvete-de-baunilha-e-morangos_114579-2595.jpg"
+                alt="Brownie"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/brownie-de-chocolate-servido-com-sorvete-de-baunilha-e-morangos_5536627.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Brownie de chocolate com sorvete.</p>
+              <p class="item-price">R$ 12,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Cheesecake</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/garfo-e-fatia-de-bolo-na-chapa-branca_23-2147840393.jpg"
+                alt="Cheesecake"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/garfo-e-fatia-de-bolo-na-chapa-branca_2544019.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Cheesecake de frutas vermelhas.</p>
+              <p class="item-price">R$ 15,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Torta de Limão</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/uma-fatia-de-bolo-com-decoracao-de-creme-de-girassol_114579-17560.jpg"
+                alt="Torta de Limão"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/uma-fatia-de-bolo-com-decoracao-de-creme-de-girassol_10748981.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Torta de limão com merengue.</p>
+              <p class="item-price">R$ 14,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Crepe Suzette</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/crepes-de-cafe-da-manha-com-geleia-em-angulo-alto_23-2148796998.jpg"
+                alt="Crepe Suzette"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/crepes-de-cafe-da-manha-com-geleia-em-angulo-alto_11684462.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Crepes ao molho de laranja e licor.</p>
+              <p class="item-price">R$ 18,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3>Frutas da Estação</h3>
+              <img
+                src="https://img.freepik.com/fotos-gratis/vista-superior-deliciosa-salada-de-frutas-dentro-do-prato-com-frutas-frescas-na-foto-de-dieta-exotica-de-arvore-de-frutas-tropicais-cinza_140725-109948.jpg"
+                alt="Frutas da Estação"
+                class="item-image"
+              />
+              <p>Design by <a href="https://br.freepik.com/fotos-gratis/vista-superior-deliciosa-salada-de-frutas-dentro-do-prato-com-frutas-frescas-na-foto-de-dieta-exotica-de-arvore-de-frutas-tropicais-cinza_16387819.htm" target="_blank" rel="noopener noreferrer">Freepik</a></p>
+              <p>Mix de frutas frescas.</p>
+              <p class="item-price">R$ 8,00</p>
+              <button>
+                <i class="bx bx-cart-add"></i> Adicionar ao Carrinho
+              </button>
+            </div>
+          </div>
+          <button
+            class="nav-button right"
+            onclick="scrollMenu('sobremesas', 1)"
+          >
+            <i class="bx bx-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2024 Quentinhas do Grau. Todos os direitos reservados. Imagens meramente ilustrativas.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

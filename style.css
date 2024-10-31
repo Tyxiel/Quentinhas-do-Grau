@@ -1,0 +1,611 @@
+:root {
+  --verde-quase-preto: #001f1a;
+  --verde-muito-escuro: #003d2e;
+  --verde-escuro: #4dbf8d;
+  --verde-medio: #6fd6b1;
+  --verde-claro: #a4e0d4;
+
+  --cor-almoco: #b2ebf2;
+  --cor-jantar: #ffcc80;
+  --cor-bebidas: #e8f5e9;
+  --cor-sobremesas: #f8bbd0;
+
+  --cor-almoco-escura: #3c6e78;
+  --cor-jantar-escura: #7a5b2c;
+  --cor-bebidas-escura: #669f9b;
+  --cor-sobremesas-escura: #a76d7d;
+
+  --cor-almoco-media: #67a3a4;
+  --cor-jantar-media: #c59c5f;
+  --cor-bebidas-media: #5b9b93;
+  --cor-sobremesas-media: #d1a3b2;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--verde-claro);
+  color: var(--verde-quase-preto);
+  scroll-behavior: smooth;
+}
+
+header {
+  background-color: var(--verde-escuro);
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 98%;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  padding: 0.5rem 1rem;
+  margin: 0 1rem;
+  border-radius: 8px;
+  transition: 0.3s ease color, 0.3s ease background-color;
+}
+
+nav ul li:hover {
+  background-color: var(--verde-muito-escuro);
+}
+
+.active {
+  background-color: var(--verde-escuro);
+}
+
+nav ul li a {
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#carrinho {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  background-color: var(--verde-medio);
+  color: #fff;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  font-size: 20px;
+}
+
+#carrinho:hover {
+  background-color: var(--verde-muito-escuro);
+}
+
+#carrinho-resumo {
+  background-color: var(--verde-claro);
+  color: var(--verde-quase-preto);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: justify;
+  position: absolute;
+  top: 60px;
+  right: 32px;
+  width: 250px;
+  z-index: 1000;
+  display: none;
+}
+
+#carrinho-resumo h3 {
+  text-align: center;
+  border-bottom: 2px dashed var(--verde-escuro); /* Borda tracejada */
+  padding-bottom: 0.5rem; /* Espaçamento para a borda não colar no texto */
+  margin-bottom: 1rem; /* Espaçamento abaixo do título */
+}
+
+#carrinho-resumo p {
+  width: 100%;
+  text-align: center;
+}
+
+#carrinho-itens {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+#mais-detalhes {
+  display: flex;
+  background-color: var(--verde-escuro);
+  color: white;
+  border: none;
+  justify-content: space-between;
+  font-size: 18px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carrinho-item {
+  font-size: 15px;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#nota-fiscal {
+  background-color: var(--verde-claro);
+  color: var(--verde-quase-preto);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 50px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  min-width: 320px;
+  height: auto; /* Ajuste conforme necessário para A4 */
+  z-index: 2000;
+  display: none; /* Oculta por padrão */
+  overflow: hidden; /* Para evitar overflow dos itens */
+}
+
+#nota-fiscal h2 {
+  border-bottom: 2px dashed var(--verde-escuro); /* Borda tracejada */
+  padding-bottom: 0.5rem; /* Espaçamento para a borda não colar no texto */
+  margin-bottom: 1rem; /* Espaçamento abaixo do título */
+  margin-top: 50px;
+}
+
+#nota-fiscal ul {
+  border-bottom: 2px dashed var(--verde-escuro); /* Borda tracejada no topo */
+  padding-bottom: 1rem; /* Espaçamento acima da borda */
+  margin-bottom: -0.5rem;
+}
+
+.nota-fiscal-botao {
+  background-color: var(--verde-escuro);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nota-fiscal-botao:hover {
+  background-color: var(--verde-muito-escuro);
+}
+
+.nota-fiscal-botoes {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+#nota-fiscal-itens {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.nota-fiscal-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nota-fiscal-item button {
+  background: transparent;
+  border: none;
+  color: var(--verde-escuro);
+  cursor: pointer;
+}
+
+.nota-fiscal-item button:hover {
+  color: var(--verde-muito-escuro);
+}
+
+.nota-fiscal-conteudo {
+  background-color: var(--verde-claro);
+  color: var(--verde-quase-preto);
+  border-radius: 8px;
+  padding: 20px;
+  width: 80%; /* Largura proporcional */
+  max-width: 600px; /* Limite máximo para A4 */
+  max-height: 80%; /* Altura proporcional */
+  overflow-y: auto; /* Adiciona rolagem se necessário */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+#fechar-nota-fiscal {
+  background-color: var(--verde-escuro);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#fechar-nota,
+#limpar-carrinho {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#fechar-nota {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--verde-escuro); /* Cor para fechar */
+}
+
+#fechar-nota:hover {
+  background-color: var(--verde-muito-escuro); /* Cor ao passar o mouse */
+}
+
+#limpar-carrinho {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red; /* Vermelho para limpar */
+}
+
+#limpar-carrinho:hover {
+  background-color: darkred; /* Vermelho escuro ao passar o mouse */
+}
+
+button i {
+  margin-right: 5px; /* Espaçamento entre o ícone e o texto */
+}
+
+.menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.menu-section {
+  padding: 1.5rem 0.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.menu-section h2 {
+  display: block;
+  width: 100%;
+  margin: 0;
+  font-size: 30px;
+}
+
+#almoco {
+  background-color: var(--cor-almoco);
+}
+
+#jantar {
+  background-color: var(--cor-jantar);
+}
+
+#bebidas {
+  background-color: var(--cor-bebidas);
+}
+
+#sobremesas {
+  background-color: var(--cor-sobremesas);
+}
+
+#almoco h2 {
+  color: var(--cor-almoco-escura);
+  border-color: var(--cor-almoco-escura);
+}
+
+#jantar h2 {
+  color: var(--cor-jantar-escura);
+  border-color: var(--cor-jantar-escura);
+}
+
+#bebidas h2 {
+  color: var(--cor-bebidas-escura);
+  border-color: var(--cor-bebidas-escura);
+}
+
+#sobremesas h2 {
+  color: var(--cor-sobremesas-escura);
+  border-color: var(--cor-sobremesas-escura);
+}
+
+.menu-item {
+  flex: 0 0 29%;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  margin: 1rem;
+}
+
+#almoco .menu-item {
+  background-color: var(--cor-almoco-media);
+  color: #ffffff;
+}
+
+#jantar .menu-item {
+  background-color: var(--cor-jantar-media);
+  color: #ffffff;
+}
+
+#bebidas .menu-item {
+  background-color: var(--cor-bebidas-media);
+  color: #ffffff;
+}
+
+#sobremesas .menu-item {
+  background-color: var(--cor-sobremesas-media);
+  color: #ffffff;
+}
+
+.almoco .menu-item button {
+  background-color: var(--cor-almoco-escura);
+}
+
+.jantar .menu-item button {
+  background-color: var(--cor-jantar-escura);
+}
+
+.bebidas .menu-item button {
+  background-color: var(--cor-bebidas-escura);
+}
+
+.sobremesas .menu-item button {
+  background-color: var(--cor-sobremesas-escura);
+}
+
+.menu-item h3 {
+  margin-top: 0;
+  color: #fff; /* Ajustado para branco para melhor contraste */
+  font-size: 1.8rem;
+}
+
+.menu-item img {
+  width: 100%;
+  height: 200px; /* Defina a altura desejada */
+  object-fit: cover; /* Mantém a proporção da imagem, cortando o que exceder */
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.menu-item p a {
+  text-decoration: none;
+  transition: 0.3s ease color;
+  color: var(--verde-claro);
+}
+
+.menu-item p a:hover {
+  color: var(--verde-escuro);
+}
+
+.item-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.menu-item:hover {
+  transform: scale(1.05);
+}
+
+.menu-item button {
+  background-color: var(--verde-escuro);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.menu-item button:hover {
+  background-color: var(--verde-muito-escuro);
+}
+
+.nav-button {
+  background-color: gray;
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0.5rem;
+}
+
+.nav-button:hover {
+  background-color: black;
+  opacity: 0.8;
+}
+
+footer {
+  font-size: 18px;
+  background-color: var(--verde-escuro);
+  padding: 1rem;
+  text-align: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  color: #fff;
+  margin-top: 2rem;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--verde-escuro);
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.scroll-indicator {
+  font-size: 2rem;
+  animation: bounce 1s infinite;
+}
+
+#finalizar-compra,
+#imprimir-nota-fiscal {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#finalizar-compra {
+  background-color: var(
+    --cor-almoco-escura
+  ); /* Verde escuro para finalizar compra */
+}
+
+#finalizar-compra:hover {
+  background-color: var(--cor-almoco-media); /* Verde médio ao passar o mouse */
+}
+
+#imprimir-nota-fiscal {
+  background-color: var(
+    --cor-jantar-escura
+  ); /* Cor escura para imprimir nota fiscal */
+}
+
+#imprimir-nota-fiscal:hover {
+  background-color: var(--cor-jantar-media); /* Cor média ao passar o mouse */
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 1200px) {
+  header {
+    padding: 1rem;
+  }
+
+  nav ul li {
+    margin: 0 0.5rem;
+  }
+
+  .menu-item {
+    flex: 0 0 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-item {
+    flex: 0 0 100%;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  #carrinho {
+    max-width: 150px;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav ul li {
+    margin: 0.5rem 0;
+  }
+
+  .hero {
+    padding: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+}
