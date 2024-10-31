@@ -214,7 +214,6 @@ document.getElementById("imprimir-nota-fiscal").addEventListener("click", () => 
       <br>
       <hr>
       <br>
-      <footer>Dá um desconto, fiz esse site em 4 horas no máximo :(</footer>
     </html>
   `);
   
