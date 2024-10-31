@@ -486,6 +486,18 @@ footer {
   transition: background-color 0.3s ease, padding 0.3s ease;
 }
 
+footer a {
+  text-decoration: none;
+  color: var(--verde-muito-escuro);
+  font-weight: bold;
+  transition: ease 0.3s color, ease 0.3s font-size;
+}
+
+footer a:hover {
+  font-size: 20px;
+  color: var(--verde-quase-preto);
+}
+
 .hero {
   height: 100vh;
   display: flex;
