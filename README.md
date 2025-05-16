@@ -31,3 +31,7 @@ Protótipo de uma interface web interativa para um serviço de delivery de refei
 3.  Abra o arquivo `index.html` (ou o arquivo HTML principal) no seu navegador.
 
 Ou acesse a demonstração online: [Quentinhas do Grau](https://tyxiel.github.io/Quentinhas-do-Grau/)
+
+## Licença
+
+Este projeto é licenciado sob a **GNU Affero General Public License v3.0**.
