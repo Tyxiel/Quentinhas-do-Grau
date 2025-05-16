@@ -26,7 +26,7 @@ Protótipo de uma interface web interativa para um serviço de delivery de refei
 
 ## Como Usar/Testar
 
-1.  Clone este repositório: `git clone https://github.com/seu-usuario/nome-do-repositorio.git`
+1.  Clone este repositório: `git clone https://github.com/Tyxiel/Quentinhas-do-Grau.git`
 2.  Navegue até o diretório do projeto.
 3.  Abra o arquivo `index.html` (ou o arquivo HTML principal) no seu navegador.
 
